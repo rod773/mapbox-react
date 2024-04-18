@@ -8,8 +8,10 @@ const MAPBOX_TOKEN =
 
 function MyMap() {
   const [viewport, setViewport] = useState({});
+
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
+      console.log(pos);
       setViewport({
         ...viewport,
         latitude: pos.coords.latitude,
@@ -26,6 +28,8 @@ function MyMap() {
             <IonCol size="12">
               <IonTitle className="text-center">
                 <h1>Your Location:</h1>
+                <h1>Latitude: {viewport.latitude}</h1>
+                <h1>Longitude: {viewport.longitude}</h1>
               </IonTitle>
             </IonCol>
             <IonCol size="12" className="h-screen">
